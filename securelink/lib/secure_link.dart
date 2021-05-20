@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:securelink/path.dart';
 import 'state.dart';
 
 abstract class SLElement extends StatelessWidget {
@@ -12,12 +13,20 @@ SLElement fromJson(Map<String, dynamic> json) {
       return SLPage.fromJson(json);
     case 'column':
       return SLColumn.fromJson(json);
+    case 'row':
+      return SLRow.fromJson(json);
     case 'text':
       return SLText.fromJson(json);
     case 'textField':
       return SLTextField.fromJson(json);
     case 'button':
       return SLButton.fromJson(json);
+    case 'link':
+      return SLLink.fromJson(json);
+    case 'submit':
+      return SLSubmit.fromJson(json);
+    case 'done':
+      return SLDone.fromJson(json);
   }
   return SLText('unimplement');
 }
@@ -27,20 +36,20 @@ class SLPage extends SLElement {
   String get type => 'page';
 
   final String title;
-  final SLElement home;
+  final SLElement body;
 
-  SLPage(this.title, this.home);
+  SLPage(this.title, this.body);
   factory SLPage.fromJson(Map<String, dynamic> json) {
     String title = json['title'];
-    SLElement home = fromJson(json['home']);
-    return SLPage(title, home);
+    SLElement body = fromJson(json['body']);
+    return SLPage(title, body);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(title)),
-      body: home,
+      body: body,
     );
   }
 }
@@ -87,17 +96,48 @@ class SLColumn extends SLElement {
   }
 }
 
+class SLRow extends SLElement {
+  SLRow(this.children);
+
+  @override
+  String get type => 'row';
+
+  final List<SLElement> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: children,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    );
+  }
+
+  factory SLRow.fromJson(Map<String, dynamic> json) {
+    var c = SLRow([]);
+    json['children'].forEach((v) {
+      c.children.add(fromJson(v));
+    });
+
+    return c;
+  }
+}
+
 class SLTextField extends SLElement {
   @override
   String get type => 'textField';
 
   final String id;
+  final String hintText;
 
-  SLTextField(this.id);
+  SLTextField(this.id, this.hintText);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        hintText: hintText,
+      ),
       onChanged: (value) {
         state[this.id] = value;
       },
@@ -106,7 +146,8 @@ class SLTextField extends SLElement {
 
   factory SLTextField.fromJson(Map<String, dynamic> json) {
     String id = json['id'];
-    return SLTextField(id);
+    String hintText = json['hintText'] ?? '';
+    return SLTextField(id, hintText);
   }
 }
 
@@ -130,5 +171,77 @@ class SLButton extends SLElement {
 
   factory SLButton.fromJson(Map<String, dynamic> json) {
     return SLButton(json['text']);
+  }
+}
+
+class SLLink extends SLElement {
+  @override
+  String get type => 'link';
+
+  final String text;
+  final String to;
+
+  SLLink(this.text, this.to);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      child: Text(text),
+      onPressed: () {
+        Navigator.pop(context, MyRouterPath(RootPath.secureLink, to));
+      },
+    );
+  }
+
+  factory SLLink.fromJson(Map<String, dynamic> json) {
+    return SLLink(json['text'], json['to']);
+  }
+}
+
+class SLSubmit extends SLElement {
+  @override
+  String get type => 'submit';
+
+  final String text;
+  final String to;
+
+  SLSubmit(this.text, this.to);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      child: Text(text),
+      onPressed: () {
+        Navigator.pop(context, MyRouterPath(RootPath.secureLink, to, true));
+      },
+    );
+  }
+
+  factory SLSubmit.fromJson(Map<String, dynamic> json) {
+    return SLSubmit(json['text'], json['to']);
+  }
+}
+
+class SLDone extends SLElement {
+  @override
+  String get type => 'submit';
+
+  final String text;
+
+  SLDone(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      child: Text(text),
+      onPressed: () {
+        Navigator.pop(
+            context, MyRouterPath(RootPath.secureLink, '', false, true));
+      },
+    );
+  }
+
+  factory SLDone.fromJson(Map<String, dynamic> json) {
+    return SLDone(json['text']);
   }
 }

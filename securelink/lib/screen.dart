@@ -15,15 +15,17 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        children: [
-          ElevatedButton(
-            child: Text('Go to Secure Link'),
-            onPressed: () {
-              widget.onSelect();
-            },
-          ),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(
+              child: Text('Secure Link to KPI'),
+              onPressed: () {
+                widget.onSelect();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -8,9 +8,11 @@ enum RootPath {
 
 class MyRouterPath {
   final RootPath rootPath;
-  final int? id;
+  final String? id;
+  final bool? submit;
+  final bool? done;
 
-  MyRouterPath(this.rootPath, [this.id]);
+  MyRouterPath(this.rootPath, [this.id, this.submit, this.done]);
 }
 
 class MyRouteInformationParser extends RouteInformationParser<MyRouterPath> {
@@ -26,7 +28,7 @@ class MyRouteInformationParser extends RouteInformationParser<MyRouterPath> {
 
     //detail hendle '/securelink/:id'
     if (uri.pathSegments.length == 2 && uri.pathSegments[0] == 'securelink') {
-      var id = int.tryParse(uri.pathSegments[1]);
+      var id = uri.pathSegments[1];
       return MyRouterPath(RootPath.secureLink, id);
     }
 
