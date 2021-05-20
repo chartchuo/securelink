@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:securelink/remotescreen.dart';
+import 'secure-link.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: RemoteScreen(
+    home: SLPage(
       title: 'Test',
       elements: [
-        RsText('data 1'),
-        RsText('data 2'),
-        RsText('data 3'),
-        RsText('data 4'),
-        RsColumn([
-          RsText('data 4.1'),
-          RsText('data 4.2'),
-          RsText('data 4.3'),
-          RsText('data 4.4'),
+        SLText('data 1'),
+        SLText('data 2'),
+        SLText('data 3'),
+        SLText('data 4'),
+        SLColumn([
+          SLText('data 4.1'),
+          SLText('data 4.2'),
+          SLText('data 4.3'),
+          SLText('data 4.4'),
         ])
       ],
     ),

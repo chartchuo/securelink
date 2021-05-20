@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class RemoteScreen extends StatelessWidget {
+class SLPage extends StatelessWidget {
   final String? title;
-  final List<RsElement>? elements;
+  final List<SLElement>? elements;
 
-  const RemoteScreen({Key? key, required this.title, required this.elements})
+  const SLPage({Key? key, required this.title, required this.elements})
       : super(key: key);
 
   @override
@@ -18,18 +18,18 @@ class RemoteScreen extends StatelessWidget {
   }
 }
 
-abstract class RsElement extends StatelessWidget {
+abstract class SLElement extends StatelessWidget {
   String get type;
   bool get isAction => false;
 }
 
-class RsText extends RsElement {
+class SLText extends SLElement {
   @override
   String get type => 'Text';
 
   final String data;
 
-  RsText(this.data);
+  SLText(this.data);
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +37,13 @@ class RsText extends RsElement {
   }
 }
 
-class RsColumn extends RsElement {
-  RsColumn(this.children);
+class SLColumn extends SLElement {
+  SLColumn(this.children);
 
   @override
   String get type => 'Column';
 
-  final List<RsElement> children;
+  final List<SLElement> children;
 
   @override
   Widget build(BuildContext context) {
