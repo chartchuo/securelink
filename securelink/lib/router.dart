@@ -16,11 +16,13 @@ class MyRouter extends RouterDelegate<MyRouterPath>
   var _myRouterPath = MyRouterPath(RootPath.home);
 
   var natsClient = nats.Client();
+  String provider = 'kpi';
 
   MaterialPage homePage() {
     return MaterialPage(
         key: ValueKey('homePage'),
-        child: HomeScreen(onSelect: () async {
+        child: HomeScreen(onSelect: (p) async {
+          provider = p;
           setNewRoutePath(MyRouterPath(RootPath.secureLink, '0'));
         }));
   }
@@ -88,7 +90,8 @@ class MyRouter extends RouterDelegate<MyRouterPath>
     _myRouterPath = path;
     String submitText = '';
     if (path.submit == true) submitText = state.toString();
-    var msg = await natsClient.requestString('kpi.${path.id}', submitText);
+    var msg =
+        await natsClient.requestString('$provider.${path.id}', submitText);
     print(msg.string);
     json = jsonDecode(msg.string);
     notifyListeners();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:securelink/secure_link.dart';
 
 class HomeScreen extends StatefulWidget {
-  final Function onSelect;
+  final ValueChanged<String> onSelect;
 
   const HomeScreen({Key? key, required this.onSelect}) : super(key: key);
 
@@ -21,8 +21,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ElevatedButton(
               child: Text('Secure Link to KPI'),
               onPressed: () {
-                widget.onSelect();
+                widget.onSelect('kpi');
               },
+            ),
+            ElevatedButton(
+              child: Text('Secure Link to Krung Thai AXA'),
+              onPressed: () {
+                widget.onSelect('axa');
+              },
+            ),
+            ElevatedButton(
+              child: Text('Secure Link to Dhipaya'),
+              onPressed: () {},
             ),
           ],
         ),
