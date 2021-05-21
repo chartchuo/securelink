@@ -14,27 +14,33 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: Center(
-        child: Column(
-          children: [
-            ElevatedButton(
-              child: Text('Secure Link to KPI'),
-              onPressed: () {
-                widget.onSelect('kpi');
-              },
-            ),
-            ElevatedButton(
-              child: Text('Secure Link to Krung Thai AXA'),
-              onPressed: () {
-                widget.onSelect('axa');
-              },
-            ),
-            ElevatedButton(
-              child: Text('Secure Link to Dhipaya'),
-              onPressed: () {},
-            ),
-          ],
+        child: SafeArea(
+          child: Column(
+            children: [
+              Image.network(
+                  'http://sitem.co.th/wp-content/uploads/2016/02/ktb-logo-1.jpg'),
+              ElevatedButton(
+                child: Text('Secure Link to KPI'),
+                onPressed: () {
+                  widget.onSelect('kpi');
+                },
+              ),
+              ElevatedButton(
+                child: Text('Secure Link to Krung Thai AXA'),
+                onPressed: () {
+                  widget.onSelect('axa');
+                },
+              ),
+              ElevatedButton(
+                child: Text('Secure Link to KTC'),
+                onPressed: () {
+                  widget.onSelect('ktc');
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

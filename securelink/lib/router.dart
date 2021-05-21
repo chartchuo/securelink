@@ -71,6 +71,9 @@ class MyRouter extends RouterDelegate<MyRouterPath>
         print('Pop value $result');
         if (result is MyRouterPath) {
           setNewRoutePath(result);
+        } else {
+          // back button
+          state = {};
         }
         return route.didPop(result);
       },
