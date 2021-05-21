@@ -15,6 +15,8 @@ SLElement fromJson(Map<String, dynamic> json) {
       return SLColumn.fromJson(json);
     case 'row':
       return SLRow.fromJson(json);
+    case 'list':
+      return SLList.fromJson(json);
     case 'text':
       return SLText.fromJson(json);
     case 'image':
@@ -109,6 +111,29 @@ class SLColumn extends SLElement {
 
   factory SLColumn.fromJson(Map<String, dynamic> json) {
     var c = SLColumn([]);
+    json['children'].forEach((v) {
+      c.children.add(fromJson(v));
+    });
+
+    return c;
+  }
+}
+
+class SLList extends SLElement {
+  SLList(this.children);
+
+  @override
+  String get type => 'list';
+
+  final List<SLElement> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(children: children);
+  }
+
+  factory SLList.fromJson(Map<String, dynamic> json) {
+    var c = SLList([]);
     json['children'].forEach((v) {
       c.children.add(fromJson(v));
     });

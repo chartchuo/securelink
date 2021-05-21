@@ -21,20 +21,6 @@ func main() {
 					"src": "https://dstore.co.th/wp-content/uploads/2018/06/logo-ktc.png"
 				},
 				{
-					"type": "textField",
-					"hintText" : "First name",
-					"id": "firstName"
-				},
-				{
-					"type": "textField",
-					"hintText" : "Last name",
-					"id": "lastName"
-				},
-				{
-					"type": "text",
-					"text": "Please input your name and last name"
-				},
-				{
 					"type": "link",
 					"to" : "1",
 					"text": "Next"
@@ -48,17 +34,8 @@ func main() {
 		"type": "page",
 		"title": "Page 1",
 		"body": {
-			"type": "column",
+			"type": "list",
 			"children": [
-				{
-					"type": "text",
-					"text": "Input your address"
-				},
-				{
-					"type": "textField",
-					"hintText" : "Address",
-					"id": "address"
-				},
 				{
 					"type": "row",
 					"children" : [
@@ -73,6 +50,30 @@ func main() {
 							"text":"submit"
 						}
 					]
+				},
+				{
+					"type": "image",
+					"src": "https://www.ktc.co.th/pub/media/creditcard/03-KTC_X_WORLD_REWARDS_MASTERCARD.png"
+				},
+				{
+					"type": "image",
+					"src": "https://www.ktc.co.th/pub/media/creditcard/04-KTC_WORLD_REWARDS_MASTERCARD.png"
+				},
+				{
+					"type": "image",
+					"src": "https://www.ktc.co.th/sites/ktc/thumbnail/1491904147244/02-ktc%20visa%20signature-min.png"
+				},
+				{
+					"type": "image",
+					"src": "https://www.ktc.co.th/pub/media/creditcard/03-KTC_X_WORLD_REWARDS_MASTERCARD.png"
+				},
+				{
+					"type": "image",
+					"src": "https://www.ktc.co.th/pub/media/creditcard/04-KTC_WORLD_REWARDS_MASTERCARD.png"
+				},
+				{
+					"type": "image",
+					"src": "https://www.ktc.co.th/sites/ktc/thumbnail/1491904147244/02-ktc%20visa%20signature-min.png"
 				}
 			]
 		}
