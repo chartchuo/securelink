@@ -32,7 +32,7 @@ func main() {
 	page1 := `
 	{
 		"type": "page",
-		"title": "Page 1",
+		"title": "List View Testing",
 		"body": {
 			"type": "list",
 			"children": [
@@ -42,7 +42,7 @@ func main() {
 						{
 							"type":"link",
 							"to":"0",
-							"text":"Preious"
+							"text":"Previous"
 						},
 						{
 							"type":"submit",
@@ -96,7 +96,7 @@ func main() {
 						{
 							"type":"link",
 							"to":"1",
-							"text":"Preious"
+							"text":"Previous"
 						},
 						{
 							"type":"done",

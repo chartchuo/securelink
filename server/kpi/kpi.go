@@ -27,6 +27,11 @@ func main() {
 				},
 				{
 					"type": "textField",
+					"hintText" : "Middle name",
+					"id": "midName"
+				},
+				{
+					"type": "textField",
 					"hintText" : "Last name",
 					"id": "lastName"
 				},
@@ -65,7 +70,7 @@ func main() {
 						{
 							"type":"link",
 							"to":"0",
-							"text":"Preious"
+							"text":"Previous"
 						},
 						{
 							"type":"submit",
@@ -95,7 +100,7 @@ func main() {
 						{
 							"type":"link",
 							"to":"1",
-							"text":"Preious"
+							"text":"Previous"
 						},
 						{
 							"type":"done",
