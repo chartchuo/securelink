@@ -17,6 +17,8 @@ SLElement fromJson(Map<String, dynamic> json) {
       return SLRow.fromJson(json);
     case 'text':
       return SLText.fromJson(json);
+    case 'image':
+      return SLImage.fromJson(json);
     case 'textField':
       return SLTextField.fromJson(json);
     case 'button':
@@ -70,6 +72,25 @@ class SLText extends SLElement {
   factory SLText.fromJson(Map<String, dynamic> json) {
     String text = json['text'];
     return SLText(text);
+  }
+}
+
+class SLImage extends SLElement {
+  @override
+  String get type => 'image';
+
+  final String src;
+
+  SLImage(this.src);
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.network(src);
+  }
+
+  factory SLImage.fromJson(Map<String, dynamic> json) {
+    String src = json['src'];
+    return SLImage(src);
   }
 }
 
@@ -133,11 +154,12 @@ class SLTextField extends SLElement {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         hintText: hintText,
       ),
+      initialValue: state[this.id],
       onChanged: (value) {
         state[this.id] = value;
       },
@@ -235,6 +257,7 @@ class SLDone extends SLElement {
     return ElevatedButton(
       child: Text(text),
       onPressed: () {
+        state = {};
         Navigator.pop(
             context, MyRouterPath(RootPath.secureLink, '', false, true));
       },

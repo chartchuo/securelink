@@ -17,8 +17,8 @@ func main() {
 			"type": "column",
 			"children": [
 				{
-					"type": "text",
-					"text": "Please input you information"
+					"type": "image",
+					"src": "https://www.kpi.co.th/src/nav-logo.png"
 				},
 				{
 					"type": "textField",
@@ -29,6 +29,10 @@ func main() {
 					"type": "textField",
 					"hintText" : "Last name",
 					"id": "lastName"
+				},
+				{
+					"type": "text",
+					"text": "Please input your name and last name"
 				},
 				{
 					"type": "link",
@@ -121,6 +125,7 @@ func main() {
 				log.Fatal(err)
 			}
 			b := []byte(page0)
+			print("Respond: Page 0\n")
 			msg.Respond(b)
 		}
 
@@ -137,6 +142,7 @@ func main() {
 				log.Fatal(err)
 			}
 			b := []byte(page1)
+			print("Respond: Page 1\n")
 			msg.Respond(b)
 		}
 
@@ -152,8 +158,10 @@ func main() {
 			if err != nil {
 				log.Fatal(err)
 			}
+			print("Receive Data: ", string(msg.Data), "\n")
 			res := fmt.Sprintf(page2, string(msg.Data))
 			b := []byte(res)
+			print("Respond: Page 2\n")
 			msg.Respond(b)
 		}
 
