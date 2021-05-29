@@ -17,10 +17,6 @@ func main() {
 			"type": "column",
 			"children": [
 				{
-					"type": "image",
-					"src": "http://www.acnews.net/admin/img_small/Small_7559481.jpg"
-				},
-				{
 					"type": "textField",
 					"hintText" : "First name",
 					"id": "firstName"

@@ -17,10 +17,6 @@ func main() {
 			"type": "column",
 			"children": [
 				{
-					"type": "image",
-					"src": "https://dstore.co.th/wp-content/uploads/2018/06/logo-ktc.png"
-				},
-				{
 					"type": "link",
 					"to" : "1",
 					"text": "Next"
@@ -53,27 +49,27 @@ func main() {
 				},
 				{
 					"type": "image",
-					"src": "https://www.ktc.co.th/pub/media/creditcard/03-KTC_X_WORLD_REWARDS_MASTERCARD.png"
+					"src": "https://km.visamiddleeast.com/dam/VCOM/regional/ap/taiwan/global-elements/images/tw-visa-classic-card-498x280.png"
 				},
 				{
 					"type": "image",
-					"src": "https://www.ktc.co.th/pub/media/creditcard/04-KTC_WORLD_REWARDS_MASTERCARD.png"
+					"src": "https://km.visamiddleeast.com/dam/VCOM/regional/ap/taiwan/global-elements/images/tw-visa-classic-card-498x280.png"
 				},
 				{
 					"type": "image",
-					"src": "https://www.ktc.co.th/sites/ktc/thumbnail/1491904147244/02-ktc%20visa%20signature-min.png"
+					"src": "https://km.visamiddleeast.com/dam/VCOM/regional/ap/taiwan/global-elements/images/tw-visa-classic-card-498x280.png"
 				},
 				{
 					"type": "image",
-					"src": "https://www.ktc.co.th/pub/media/creditcard/03-KTC_X_WORLD_REWARDS_MASTERCARD.png"
+					"src": "https://km.visamiddleeast.com/dam/VCOM/regional/ap/taiwan/global-elements/images/tw-visa-classic-card-498x280.png"
 				},
 				{
 					"type": "image",
-					"src": "https://www.ktc.co.th/pub/media/creditcard/04-KTC_WORLD_REWARDS_MASTERCARD.png"
+					"src": "https://km.visamiddleeast.com/dam/VCOM/regional/ap/taiwan/global-elements/images/tw-visa-classic-card-498x280.png"
 				},
 				{
 					"type": "image",
-					"src": "https://www.ktc.co.th/sites/ktc/thumbnail/1491904147244/02-ktc%20visa%20signature-min.png"
+					"src": "https://km.visamiddleeast.com/dam/VCOM/regional/ap/taiwan/global-elements/images/tw-visa-classic-card-498x280.png"
 				}
 			]
 		}

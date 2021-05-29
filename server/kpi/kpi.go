@@ -17,10 +17,6 @@ func main() {
 			"type": "column",
 			"children": [
 				{
-					"type": "image",
-					"src": "https://www.kpi.co.th/src/nav-logo.png"
-				},
-				{
 					"type": "textField",
 					"hintText" : "First name",
 					"id": "firstName"

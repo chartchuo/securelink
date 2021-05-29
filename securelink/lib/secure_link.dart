@@ -52,6 +52,7 @@ class SLPage extends SLElement {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(title: Text(title)),
       body: body,
     );

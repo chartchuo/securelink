@@ -19,8 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SafeArea(
           child: Column(
             children: [
-              Image.network(
-                  'http://sitem.co.th/wp-content/uploads/2016/02/ktb-logo-1.jpg'),
               ElevatedButton(
                 child: Text('Secure Link to KPI'),
                 onPressed: () {
