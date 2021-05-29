@@ -65,7 +65,7 @@ func main() {
 						{
 							"type":"link",
 							"to":"0",
-							"text":"Preious"
+							"text":"Previous"
 						},
 						{
 							"type":"submit",
@@ -95,7 +95,7 @@ func main() {
 						{
 							"type":"link",
 							"to":"1",
-							"text":"Preious"
+							"text":"Previous"
 						},
 						{
 							"type":"done",

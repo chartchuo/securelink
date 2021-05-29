@@ -43,7 +43,8 @@ class MyRouter extends RouterDelegate<MyRouterPath>
   }
 
   MyRouter() : _navigatorKey = GlobalKey<NavigatorState>() {
-    natsClient.connect("10.0.2.2");
+    natsClient.connect(Uri.parse('ws://10.0.2.2:80'));
+    // natsClient.connect(Uri.parse('ws://localhost:80'));
   }
 
   @override
